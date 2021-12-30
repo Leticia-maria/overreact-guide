@@ -1,7 +1,7 @@
-- name: Markdown to PDF and HTML
-  uses: BaileyJM02/markdown-to-pdf@v1
+name: Markdown to PDF and HTML
+uses: BaileyJM02/markdown-to-pdf@v1
 
-name: Docs to PDF
+#name: Docs to PDF
 # This workflow is triggered on pushes to the repository.
 on:
   push:
