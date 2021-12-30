@@ -1,3 +1,4 @@
+
 name: Publish Document to Release
 
 on:
@@ -19,7 +20,7 @@ jobs:
         uses: shrink/actions-document-publish@v1
         id: publish-document
         with:
-          sources: 'documents/install.md'
+          sources: 'src/page1.md src/page2.md'
       - if: github.event_name == 'release' && github.event.action == 'published'
         name: Get Release
         id: release
