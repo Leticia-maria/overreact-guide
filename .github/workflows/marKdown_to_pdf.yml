@@ -1,25 +1,33 @@
-name: Markdown to PDF and HTML
-  # You may pin to the exact commit or the version.
-  # uses: BaileyJM02/markdown-to-pdf@efc04d3f22971dfbb6b571333469119cfb6a926c
-uses: BaileyJM02/markdown-to-pdf@v1
-    with:
-    # (Path) The location of the folder containing your .md or .markdown files
-    input_dir: 
-    # (Path) The location of the folder containing your images, this should be the route of all images
-    images_dir: # optional
-    # (String) The path you use to import your images that can be replaced with the server URL
-    image_import: # optional
-    # (Path) The location of the folder you want to place the built files
-    output_dir: # optional
-    # (Boolean) Whether to also create a .html file
-    build_html: # optional
-    # (File) The location of the CSS file you want to use as the theme
-    theme: # optional
-    # (Boolean) Whether to extend your custom CSS file with the default theme
-    extend_default_theme: # optional
-    # (File) The location of the CSS file you want to use as the code snipped highlight theme
-    highlight_theme: # optional
-    # (File) The location of the HTML/Mustache file you want to use as the HTML template
-    template: # optional
-    # (Boolean) Whether a table of contents should be generated
-    table_of_contents: # optional
+# .github/workflows/convert-to-pdf.yml
+
+name: Docs to PDF
+# This workflow is triggered on pushes to the repository.
+on:
+  push:
+    branches:
+      - master
+    # Paths can be used to only trigger actions when you have edited certain files, such as a file within the /docs directory
+    paths:
+      - 'src/**.md'
+      - 'src/**'
+
+jobs:
+  converttopdf:
+    name: Build PDF
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: baileyjm02/markdown-to-pdf@v1
+        with:
+          input_dir: src
+          output_dir: pdfs
+          images_dir: src/
+          # for example <img src="./images/file-name.png">
+          image_import: ./
+          # Default is true, can set to false to only get PDF files
+          build_html: false
+      - uses: actions/upload-artifact@v1
+        with:
+          name: docs
+          path: pdfs
+
