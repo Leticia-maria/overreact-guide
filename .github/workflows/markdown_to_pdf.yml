@@ -1,17 +1,14 @@
-name: Publish Document to Release
+name: Upload Document as Artifact
 
-on:
-  push:
-  release:
-    types: [published]
+on: [push]
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_TOKEN: ${{ github.token }}
 
 jobs:
-  publish-and-release:
+  publish:
     runs-on: ubuntu-latest
-    name: Publish Document to Release
+    name: Publish Document
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -19,16 +16,10 @@ jobs:
         uses: shrink/actions-document-publish@v1
         id: publish-document
         with:
-          sources: 'src/howitworks.md'
-      - if: github.event_name == 'release' && github.event.action == 'published'
-        name: Get Release
-        id: release
-        uses: bruceadams/get-release@v1.2.0
-      - if: github.event_name == 'release' && github.event.action == 'published'
-        name: Attach PDF to Release
-        uses: actions/upload-release-asset@v1
+          sources: 'documents/front.md documents/examples/**/*.md documents/back.md'
+      - name: Upload Document
+        uses: actions/upload-artifact@v2
+        id: upload-document
         with:
-          upload_url: ${{ steps.release.outputs.upload_url }}
-          asset_path: ${{ steps.publish-document.outputs.pdf }}
-          asset_name: 'document.pdf'
-          asset_content_type: src/
+          name: 'document.pdf'
+          path: ${{ steps.publish-document.outputs.pdf }}
