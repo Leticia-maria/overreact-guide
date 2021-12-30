@@ -85,7 +85,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Quickstart</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">3.</strong> Jupyter notebooks</a></li><li class="chapter-item expanded affix "><li class="part-title">Deep dive</li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">4.</strong> Design</a></li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">5.</strong> The command-line tool</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="input.html"><strong aria-hidden="true">5.1.</strong> Input format reference</a></li></ol></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">6.</strong> The library</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="https://geem-lab.github.io/overreact/overreact.html"><strong aria-hidden="true">6.1.</strong> API reference</a></li></ol></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Quickstart</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">3.</strong> Jupyter notebooks</a></li><li class="chapter-item expanded affix "><li class="part-title">Deep dive</li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">4.</strong> Design</a></li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">5.</strong> The command-line tool</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="input.html"><strong aria-hidden="true">5.1.</strong> Input format reference</a></li></ol></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">6.</strong> The library</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="https://geem-lab.github.io/overreact/overreact.html"><strong aria-hidden="true">6.1.</strong> API reference</a></li></ol></li><li class="chapter-item expanded "><a href="contributing.html"><strong aria-hidden="true">7.</strong> Contributing</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -166,8 +166,8 @@
     <img alt="overreact" src="https://raw.githubusercontent.com/geem-lab/overreact-guide/master/logo.png" />
 </div>
 <p><strong>overreact</strong> is a <strong>library</strong> and a <strong>command-line tool</strong> for building and
-analyzing homogeneous microkinetic models<sup class="footnote-reference"><a href="#microkinetic">1</a></sup> from first-principles
-calculations<sup class="footnote-reference"><a href="#ethane">2</a></sup>:</p>
+analyzing homogeneous <strong>microkinetic models</strong> from <strong>first-principles
+calculations</strong>:</p>
 <pre><code class="language-python">In [1]: from overreact import api
 
 In [2]: api.get_k(&quot;S -&gt; E‡ -&gt; S&quot;,
@@ -175,9 +175,41 @@ In [2]: api.get_k(&quot;S -&gt; E‡ -&gt; S&quot;,
    ...:            &quot;E‡&quot;: &quot;data/ethane/B97-3c/eclipsed.out&quot;})
 Out[2]: array([8.16880917e+10])
 </code></pre>
-<p>It uses <strong>precise thermochemical partition funtions</strong>, <strong>tunneling corrections</strong>
-and data is <strong>parsed directly</strong> from computational chemistry output files thanks
-to <a href="https://cclib.github.io/"><code>cclib</code></a> (see the
+<details>
+    <summary style="cursor: pointer;">
+        🤔 What is <strong>microkinetic modeling</strong>?
+    </summary>
+    <p>
+        <strong>Microkinetic modeling</strong> is a technique used to predict the outcome
+        of complex chemical reactions.
+        It can be used
+        to investigate the catalytic transformations
+        of molecules.
+        <strong>overreact</strong> makes it easy to create
+        and analyze microkinetic models built
+        from computational chemistry data.
+    </p>
+</details>
+<details>
+    <summary style="cursor: pointer;">
+        🧐 What do you mean by <strong>first-principles calculations</strong>?
+    </summary>
+    <p>
+        We use the term <strong>first-principles calculations</strong> to refer to
+        calculations performed using quantum chemical modern methods such as
+        <a href="https://en.wikipedia.org/wiki/Hartree%E2%80%93Fock_method">Wavefunction</a>
+        and
+        <a href="https://en.wikipedia.org/wiki/Density_functional_theory">Density Functional</a>
+        theories.
+        For instance, the three-line example code above calculates the rate of methyl rotation in ethane (at
+        <a href="https://doi.org/10.1063/1.5012601">B97-3c</a>).
+        (Rather surprisingly, the error found is less than 2%
+        <a href="http://dx.doi.org/10.1126/science.1132178">when compared to available experimental results</a>.)
+    </p>
+</details>
+<p><strong>overreact</strong> uses <strong>precise thermochemical partition funtions</strong>, <strong>tunneling
+corrections</strong> and data is <strong>parsed directly</strong> from computational chemistry
+output files thanks to <a href="https://cclib.github.io/"><code>cclib</code></a> (see the
 <a href="https://cclib.github.io/#summary">list of its supported programs</a>).</p>
 <h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
 <p><strong>overreact</strong> is a Python package, so you can easily install it with
@@ -199,8 +231,8 @@ for more guidance.</p>
 <blockquote>
 <p>F. S. S. Schneider and G. F. Caramori. <em><strong>geem-lab/overreact</strong>: a tool for
 creating and analyzing microkinetic models built from computational chemistry
-data, v1.0.1</em>. <strong>2021</strong>.
-<a href="https://zenodo.org/badge/latestdoi/214332027">DOI:10.5281/ZENODO.5643960</a>.
+data, v1.0.2</em>. <strong>2021</strong>.
+<a href="https://zenodo.org/badge/latestdoi/214332027">DOI:10.5281/zenodo.5730603</a>.
 Freely available at: &lt;<a href="https://github.com/geem-lab/overreact">https://github.com/geem-lab/overreact</a>&gt;.</p>
 </blockquote>
 <p>Here's the reference in <a href="http://www.bibtex.org/">BibTeX</a> format:</p>
@@ -210,10 +242,10 @@ Freely available at: &lt;<a href="https://github.com/geem-lab/overreact">https:/
   author = {Schneider, F. S. S. and Caramori, G. F.},
   title = {
     \textbf{geem-lab/overreact}: a tool for creating and analyzing
-    microkinetic models built from computational chemistry data, v1.0.1
+    microkinetic models built from computational chemistry data, v1.0.2
   },
-  doi = {10.5281/ZENODO.5643960},
-  url = {https://zenodo.org/record/5643960},
+  doi = {10.5281/zenodo.5730603},
+  url = {https://zenodo.org/record/5730603},
   publisher = {Zenodo},
   copyright = {Open Access}
 }
@@ -231,18 +263,6 @@ is published, the above BibTeX entry will be updated.</p>
 partially funded by the
 <a href="https://cnpq.br/">Brazilian National Council for Scientific and Technological Development (CNPq)</a>,
 grant number 140485/2017-1.</p>
-<div class="footnote-definition" id="microkinetic"><sup class="footnote-definition-label">1</sup>
-<p>Microkinetic modeling is a technique used to predict the outcome of complex
-chemical reactions. It can be used to investigate the catalytic transformations
-of molecules. <strong>overreact</strong> makes it easy to create and analyze microkinetic
-models built from computational chemistry data.</p>
-</div>
-<div class="footnote-definition" id="ethane"><sup class="footnote-definition-label">2</sup>
-<p>The three-line example code calculates the rate of methyl rotation in ethane (at
-<a href="https://doi.org/10.1063/1.5012601">B97-3c</a>). Surprisingly, the error found is
-less than 2%
-<a href="http://dx.doi.org/10.1126/science.1132178">when compared to available experimental results</a>.</p>
-</div>
 <h2 id="where-to-go-next"><a class="header" href="#where-to-go-next"><em>Where to go next</em></a></h2>
 <blockquote>
 <p><strong>💡</strong> If you want to...</p>
@@ -349,24 +369,6 @@ overreact executable will be inside <code>~/.local/bin</code>.</p>
 <p><strong>💡</strong> Read more about
 <a href="https://unix.stackexchange.com/a/26059/211802"><code>PATH</code> on the Unix &amp; Linux Stack Exchange</a>.</p>
 </blockquote>
-<h2 id="contributing"><a class="header" href="#contributing">Contributing</a></h2>
-<p>If you want to contribute to the development of <strong>overreact</strong>, you can find the
-source code on <a href="https://github.com/geem-lab/overreact">GitHub</a>. The recommended
-way of contributing is by forking the repository and pushing your changes to the
-forked repository.</p>
-<blockquote>
-<p><strong>💡</strong> If you're interested in contributing to open-source projects, make sure
-to read
-<a href="https://opensource.guide/how-to-contribute/">&quot;How to Contribute to Open Source&quot;</a>
-from <a href="https://opensource.guide/">Open Source Guides</a> They may even have a
-translation for your native language!</p>
-</blockquote>
-<p>After cloning your fork, we recommend using <a href="https://python-poetry.org/">Poetry</a>
-for managing your contributions:</p>
-<pre><code class="language-console">$ git clone git@github.com:your-username/overreact.git  # your-username is your GitHub username
-$ cd overreact
-$ poetry install
-</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="quickstart"><a class="header" href="#quickstart">Quickstart</a></h1>
 <p>This is a step-by-step guide on using overreact as a command-line tool. It will
 teach you all the basics of overreact through a guided use-case.</p>
@@ -384,7 +386,7 @@ step-by-step. -->
 interesting enough to show off most of the capabilities of overreact. The
 reaction is a classical SN\(_2\) reaction on a substituted cyclohexane:</p>
 <div align="center">
-    <img alt="Bromocyclohexane" src="reaction-tutorial.png" width="425" />
+    <img alt="Bromocyclohexane" src="reaction-tutorial-scheme.png" width="470" />
 </div>
 <p><strong>The labels above refer to the file names and the labels in the input file
 below.</strong> The steps above were calculated using GFN2-xTB by calling the
@@ -442,7 +444,7 @@ file, <em>it's time to run overreact</em>.</p>
 <p>This will produce quite an amount of output, so let's walk through it one step
 at a time.</p>
 <h3 id="21-the-header"><a class="header" href="#21-the-header">2.1: The header</a></h3>
-<p>The current version v1.0.1 produces a header like this:</p>
+<p>The current version v1.0.2 produces a header like this:</p>
 <pre><code>╔═══════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║                                            overreact 1.0.2                                            ║
 ╚═══════════════════════════════════════════════════════════════════════════════════════════════════════╝
@@ -450,7 +452,7 @@ at a time.</p>
 📈 Create and analyze chemical microkinetic models built from computational chemistry data.
 
 Licensed under the terms of the MIT License. If you publish work using this software, please cite
-doi:10.5281/ZENODO.5643960:
+doi:10.5281/zenodo.5730603:
 
 ┌───────────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                                                                                                       │
@@ -462,8 +464,8 @@ doi:10.5281/ZENODO.5643960:
 │     \textbf{geem-lab/overreact}: a tool for creating and analyzing                                    │
 │     microkinetic models built from computational chemistry data, v1.0.2                               │
 │   },                                                                                                  │
-│   doi = {10.5281/ZENODO.5643960},                                                                     │
-│   url = {https://zenodo.org/record/5643960},                                                          │
+│   doi = {10.5281/zenodo.5730603},                                                                     │
+│   url = {https://zenodo.org/record/5730603},                                                          │
 │   publisher = {Zenodo},                                                                               │
 │   copyright = {Open Access}                                                                           │
 │ }                                                                                                     │
@@ -728,7 +730,7 @@ The following notebooks are available:</p>
 <a href="https://github.com/geem-lab/overreact/discussions">open a discussion about it in the overreact GitHub repository</a>.</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="how-it-works"><a class="header" href="#how-it-works">How it works</a></h1>
-<p><strong>WARNIG</strong>: This page greatly simplifies things. It is not a complete
+<p><strong>WARNING</strong>: This page greatly simplifies things. It is not a complete
 description of the system and in no way substitutes the full read of the
 upcoming paper.</p>
 <p><strong>overreact</strong> takes computational chemistry outputs as <strong>data sources</strong> and uses
@@ -778,23 +780,29 @@ In the future we might get data from actual experiments, databases or using mach
     end
 </pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="using-overreact-as-a-command-line-tool"><a class="header" href="#using-overreact-as-a-command-line-tool">Using <strong>overreact</strong> as a command-line tool</a></h1>
-<p>Most commonly, you'll want to use the command-line tool to generate a project.</p>
-<p>This is a brief overview of the command-line tool. You can access the full help
-page by running <code>overreact --help</code>. Here's its output (as of
-<a href="https://github.com/geem-lab/overreact/releases/tag/v1.0.1">v1.0.1</a>):</p>
+<blockquote>
+<p><strong>✏️</strong> This an overview of the command-line tool. <strong>If you're new to
+<strong>overreact</strong>, you probably want to <a href="./tutorial.html">go over the tutorial</a>
+first.</strong></p>
+</blockquote>
+<p>Most commonly, you'll use the command-line tool to manage, explore and analyze
+your microkinetic simulations. The following is a brief overview of options
+available in the command-line tool. <strong>You can access the full help page by
+running <code>overreact --help</code></strong>. Here's its output as of
+<a href="https://github.com/geem-lab/overreact/releases/tag/v1.0.2">version 1.0.2</a>:</p>
 <pre><code class="language-console">$ overreact --help
 usage: overreact [-h] [--version] [-v] [-c] [--plot PLOT] [-b BIAS]
                  [--tunneling {eckart,wigner,none}]
                  [--no-qrrho {both,enthalpy,entropy,none}] [-T TEMPERATURE]
                  [-p PRESSURE] [--method {Radau,BDF,LSODA}]
                  [--max-time MAX_TIME] [--rtol RTOL] [--atol ATOL]
-                 path [concentrations [concentrations ...]]
+                 path [concentrations ...]
 
-Construct precise chemical microkinetic models from first principles.
-Interface for building and modifying models. Read the documentation at
-https://geem-lab.github.io/overreact-guide for more information and usage
-examples. Licensed under the terms of the MIT License. If you publish work
-using this software, please cite https://doi.org/10.5281/zenodo.5154060:
+📈 Create and analyze chemical microkinetic models built from computational
+chemistry data. Read the user guide at https://geem-lab.github.io/overreact-
+guide/ for more information and usage examples. Licensed under the terms of
+the MIT License. If you publish work using this software, please cite
+https://doi.org/10.5281/zenodo.5730603.
 
 positional arguments:
   path                  path to a source (`.k`) or compiled (.jk) model input
@@ -849,17 +857,60 @@ optional arguments:
   --atol ATOL           absolute local error of the ODE system integrator
                         (default: 1e-11)
 </code></pre>
-<p>Basically, the command-line tool receives the path to a model source file (<code>.k</code>)
-or a compiled one (<code>.jk</code>). It then compiles the model and calculates all the
-thermodynamic and kinetic quantities of interest. Head over to the
-<a href="./tutorial.html">tutorial</a> to learn more about how to use the command-line tool.
-Or continue to learn about the <a href="./input.html">input file format</a>.</p>
+<p>The following is a brief description of the command-line options.</p>
+<h2 id="the-path-to-the-model-input-file"><a class="header" href="#the-path-to-the-model-input-file">The path to the model input file</a></h2>
+<p>The command-line tool requires the path to either a model source file (<code>.k</code>) or
+a compiled one (<code>.jk</code>), from which it will read the given logfiles and calculate
+all the thermodynamic and kinetic quantities of interest.</p>
+<blockquote>
+<p><strong>💡</strong> <a href="./input.html">Click here</a> to learn all about the <strong>syntax of the model
+source file format</strong>.</p>
+</blockquote>
+<blockquote>
+<p><strong>⚠️</strong> <strong>overreact</strong> compiles your model (i.e., generates <code>.jk</code> files from the
+<code>.k</code> ones you've written) and tries to use the compiled ones whenever they are
+available. <strong>If you want to force recompilation of the source file (e.g., your
+<code>.k</code> has changed), you can use the <code>--compile</code> or <code>-c</code> option (see below).</strong></p>
+</blockquote>
+<h2 id="initial-concentrations"><a class="header" href="#initial-concentrations">Initial concentrations</a></h2>
+<p>All the remaining positional arguments are considered initial concentrations of
+compounds in the model. They are given in the form <code>name:quantity</code>, where <code>name</code>
+is the name of a compound (defined in the model source file) and <code>quantity</code> is
+the number of moles of that compound per liter of the working fluid (i.e.,
+<strong>concentrations are given in moles per liter</strong>).</p>
+<p>If at least one initial concentration is given, a microkinetic simulation will
+be performed, and the concentrations of the model species at the end of the
+simulation will be printed to the standard output.</p>
+<blockquote>
+<p><strong>⚠️</strong> Kinetic profiles (e.g., plots of concentrations as a function of time)
+won't be produced by default. <strong>You should use the <code>--plot</code> option in order to
+produce kinetic profiles (see below).</strong></p>
+</blockquote>
+<h2 id="force-recompilation-of-the-source-file"><a class="header" href="#force-recompilation-of-the-source-file">Force recompilation of the source file</a></h2>
+<p>The <code>--compile</code> (or, equivalently, <code>-c</code>) option forces the recompilation of the
+source file (<code>.k</code>) into a compiled (.jk) model input file. <strong>This is useful if
+you want to make sure you're using the latest version of the source file.</strong></p>
+<details>
+    <summary style="cursor: pointer;">
+        🤔 Why doesn't overreact recompile my model automatically?
+    </summary>
+    <p>
+        This is a design decision. The reason is that overreact is designed
+        to work with <strong>very large models</strong>,
+        and they can be slow to be interpreted
+        (imagine a model with a lot of reactions and a lot of species;
+        <strong>overreact</strong> would have to read every logfile every time you run it,
+        which can easily amount to several megabytes of data).
+    </p>
+</details>
+<h2 id="produce-kinetic-profiles-"><a class="header" href="#produce-kinetic-profiles-">Produce kinetic profiles 📈</a></h2>
+<p>The <code>--plot</code> flag can be used to produce kinetic profiles (e.g., plots of
+concentrations as a function of time during the microkinetic simulation).</p>
+<p>You can either plot all the species (<code>--plot=all</code>) or only the active ones
+(i.e., the ones that actually change concentration during the simulation, up to
+a reasonable threshold, <code>--plot=active</code>) or a single compound of interest
+(<code>--plot=&quot;NH3(w)&quot;</code>).</p>
 <!-- ...
-
-Optionally, you can specify initial concentrations of compounds (in moles per
-liter), which will be used to perform a microkinetic simulation.
-
-...
 
 \textcolor{red}{EXAMPLE NOT COOL! MAYBE THIS SHOULD BE GIVEN IN THE SUPPORTING
 INFORMATION OR SIMPLIFIED. IN ANY CASE, CLEARLY PUT THE NAME AND EXTENSION OF
@@ -908,27 +959,23 @@ certain corrections (like tunnelling) are omitted, the result can be worse or
 better, that is, show the real capacity of the code, highlighting its potential,
 and this can only be done with a detailed discussion of the cases studied.}
 
-TODO: add pieces of the output -->
+-->
 <div style="break-before: page; page-break-before: always;"></div><h1 id="command-line-input-format-specification"><a class="header" href="#command-line-input-format-specification">Command-line input format specification</a></h1>
-<p><strong>overreact</strong> is both a library and a command-line application.
-In this subsection, we briefly describe the minimal input specification for the command-line application for doing first-principles microkinetic simulations.
+<p><strong>overreact</strong> is both a library and a command-line application. In this
+subsection, we briefly describe the minimal input specification for the
+command-line application for doing first-principles microkinetic simulations.
 Don't worry, the input is very simple, yet flexible.</p>
 <!-- TODO: cite this docs in the paper: "Further guidance and advanced usage information is available in the online documentation (\hrefdoc)". -->
-<p>Basically, <strong>overreact</strong> parses complex reaction schemes with the help of a <a href="https://en.wikipedia.org/wiki/Domain-specific_language">domain-specific language (DSL)</a> designed to be as flexible and intuitive as possible to any chemist.
-For instance, as a purely illustrative example, the following <a href="https://en.wikipedia.org/wiki/Curtin%E2%80%93Hammett_principle">Curtin-Hammett system</a></p>
+<p>Basically, <strong>overreact</strong> parses complex reaction schemes with the help of a
+<a href="https://en.wikipedia.org/wiki/Domain-specific_language">domain-specific language (DSL)</a>
+designed to be as flexible and intuitive as possible to any chemist. For
+instance, as a purely illustrative example, the following
+<a href="https://en.wikipedia.org/wiki/Curtin%E2%80%93Hammett_principle">Curtin-Hammett system</a></p>
 <!-- CITE 10.1021/jo00404a002 ? -->
-<p>\[
-\require{mhchem}
-\ce{
-P_{A}(w)
-&lt;- [A(w)]^{\ddagger}
-&lt;- A(w)
-&lt;=&gt; B(w)
--&gt; [B(w)]^{\ddagger}
--&gt; P_{B}(w)
-}
-\]</p>
-<p>could be modelled very easily as follows (saved, say, in a <code>curtin_hammett.k</code> file):</p>
+<p>\[ \require{mhchem} \ce{ P_{A}(w) &lt;- [A(w)]^{\ddagger} &lt;- A(w) &lt;=&gt; B(w) -&gt;
+[B(w)]^{\ddagger} -&gt; P_{B}(w) } \]</p>
+<p>could be modelled very easily as follows (saved, say, in a <code>curtin_hammett.k</code>
+file):</p>
 <pre><code>// This is a comment and is ignored by overreact.
 
 $scheme
@@ -950,55 +997,48 @@ $end
 </code></pre>
 <h2 id="some-things-to-note"><a class="header" href="#some-things-to-note">Some things to note</a></h2>
 <ul>
-<li><code>//</code> indicates a <strong>comment</strong>.
-They are ignored until the end of the line.</li>
+<li><code>//</code> indicates a <strong>comment</strong>. They are ignored until the end of the line.</li>
 <li><strong>Blank lines</strong> are also ignored.</li>
-<li>Two <strong>blocks</strong> are required: the <code>$scheme</code> block and the <code>$compounds</code>
-block.</li>
-<li><code>$end</code> indicates the <strong>end of a block</strong>.
-It is optional: opening a new block closes the previous one.</li>
-<li><strong>Compound labels</strong> are case-sensitive.
-They must start with a letter but can contain any character
-except spaces.
-<em>Labels in the <code>$scheme</code> block should match the ones in <code>$compounds</code></em>.</li>
-<li><strong>Stoichiometric coefficients</strong> are specified as multipliers in front of
-the compound labels, e.g. <code>2 * A(w)</code>, <code>3 * A(w)</code>, etc..
-<code>A(w)</code> actually is equivalent to <code>1 * A(w)</code>.</li>
+<li>Two <strong>blocks</strong> are required: the <code>$scheme</code> block and the <code>$compounds</code> block.</li>
+<li><code>$end</code> indicates the <strong>end of a block</strong>. It is optional: opening a new block
+closes the previous one.</li>
+<li><strong>Compound labels</strong> are case-sensitive. They must start with a letter but
+can contain any character except spaces. <em>Labels in the <code>$scheme</code> block
+should match the ones in <code>$compounds</code></em>.</li>
+<li><strong>Stoichiometric coefficients</strong> are specified as multipliers in front of the
+compound labels, e.g. <code>2 * A(w)</code>, <code>3 * A(w)</code>, etc.. <code>A(w)</code> actually is
+equivalent to <code>1 * A(w)</code>.</li>
 <li><code>-&gt;</code> means a <strong>forward reaction</strong> (listing first reactants, then products).</li>
 <li><code>&lt;-</code> means a <strong>backward reaction</strong> (listing first products, then reactants).</li>
-<li><code>&lt;=&gt;</code> means an <strong>equilibrium</strong>.
-They are useful when one does not want separately model both forward and
-backward reactions.
-<em>Equilibria are assumed to be much faster than any other reaction in the
-scheme</em>.</li>
-<li><code>‡</code> indicates a <strong>transition state</strong>.
-<em>It is considered part of the compound label</em>.
-You can also use the easier-to-type <code>#</code> instead.
-That is, <code>A#(w)</code> is means the same thing as <code>A‡(w)</code>.</li>
-<li><code>(w)</code> indicates a <strong>solvated context</strong>.
-<em>It is considered part of the compound label</em>.
-It is used to identify whether a concentration correction should be
-applied.
-The default is <code>(g)</code>, which is understood as gas phase.
+<li><code>&lt;=&gt;</code> means an <strong>equilibrium</strong>. They are useful when one does not want
+separately model both forward and backward reactions. <em>Equilibria are
+assumed to be much faster than any other reaction in the scheme</em>.</li>
+<li><code>‡</code> indicates a <strong>transition state</strong>. <em>It is considered part of the compound
+label</em>. You can also use the easier-to-type <code>#</code> instead. That is, <code>A#(w)</code> is
+means the same thing as <code>A‡(w)</code>.</li>
+<li><code>(w)</code> indicates a <strong>solvated context</strong>. <em>It is considered part of the
+compound label</em>. It is used to identify whether a concentration correction
+should be applied. The default is <code>(g)</code>, which is understood as gas phase.
 <em>The actual string is currently ignored</em>: we could have written <code>A(aq)</code>,
-<code>A(l)</code> or even <code>A(dcm)</code> instead, with the same effect.
-<em>We might use solvent information in the future</em>.</li>
+<code>A(l)</code> or even <code>A(dcm)</code> instead, with the same effect. <em>We might use solvent
+information in the future</em>.</li>
 <li><strong>Paths to files</strong> are relative to the directory where the model file is
 located.</li>
-<li>The <strong>order</strong> of the species in the <code>$compounds</code> block is not important.
-The same applies to the order of the reactions in the <code>$scheme</code> block.</li>
+<li>The <strong>order</strong> of the species in the <code>$compounds</code> block is not important. The
+same applies to the order of the reactions in the <code>$scheme</code> block.</li>
 </ul>
 <h2 id="multiple-reactions-in-a-single-line"><a class="header" href="#multiple-reactions-in-a-single-line">Multiple reactions in a single line</a></h2>
 <p>We can get even closer to the original chemical notation, as <strong>overreact</strong>
-accepts multiple reactions in a single line.
-As such, the following is a <code>$scheme</code> block equivalent to the one above:</p>
+accepts multiple reactions in a single line. As such, the following is a
+<code>$scheme</code> block equivalent to the one above:</p>
 <pre><code>$scheme
  P_A(w) &lt;- A‡(w) &lt;- A(w) &lt;=&gt; B(w) -&gt; B‡(w) -&gt; P_B(w)
 $end
 </code></pre>
 <h2 id="some-ilustrative-examples"><a class="header" href="#some-ilustrative-examples">Some ilustrative examples</a></h2>
 <ol>
-<li>A simple model for the <a href="https://en.wikipedia.org/wiki/Haber_process">synthesis of ammonia</a>:</li>
+<li>A simple model for the
+<a href="https://en.wikipedia.org/wiki/Haber_process">synthesis of ammonia</a>:</li>
 </ol>
 <pre><code>$scheme
  // Synthesis of ammonia (notice how flexible the DSL is)
@@ -1014,7 +1054,8 @@ $compounds
 <ol start="2">
 <li>A simple
 <a href="https://en.wikipedia.org/wiki/Michaelis%E2%80%93Menten_kinetics">Michaelis-Menten</a>-like
-scheme (with <a href="https://en.wikipedia.org/wiki/Competitive_inhibition">competitive inhibition</a>):</li>
+scheme (with
+<a href="https://en.wikipedia.org/wiki/Competitive_inhibition">competitive inhibition</a>):</li>
 </ol>
 <pre><code>$scheme
  // A simple Michaelis-Menten-like scheme
@@ -1110,6 +1151,62 @@ array([0. , 2.63129486])
 folder. A more detailed description of the available code examples is given
 <a href="notebooks.html">next</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="api-reference"><a class="header" href="#api-reference">API reference</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contributing"><a class="header" href="#contributing">Contributing</a></h1>
+<p>If you want to contribute to the development of <strong>overreact</strong>, you can find the
+source code on <a href="https://github.com/geem-lab/overreact">GitHub</a>. The recommended
+way of contributing is by forking the repository and pushing your changes to the
+forked repository.</p>
+<blockquote>
+<p><strong>💡</strong> If you're interested in contributing to open-source projects, make sure
+to read
+<a href="https://opensource.guide/how-to-contribute/">&quot;How to Contribute to Open Source&quot;</a>
+from <a href="https://opensource.guide/">Open Source Guides</a> They may even have a
+translation for your native language!
+After cloning your fork, we recommend using <a href="https://python-poetry.org/">Poetry</a>
+for managing your contributions:</p>
+</blockquote>
+<pre><code class="language-console">$ git clone git@github.com:your-username/overreact.git  # your-username is your GitHub username
+$ cd overreact
+$ poetry install
+</code></pre>
+<h2 id="reccomended-practices"><a class="header" href="#reccomended-practices">Reccomended practices</a></h2>
+<h3 id="reporting-issues"><a class="header" href="#reporting-issues">Reporting issues</a></h3>
+<p>The easiest way to report a bug or request a feature is to
+<a href="http://github.com/geem-lab/overreact/issues">create an issue on GitHub</a>. The
+following greatly enhances our ability to solve the issue you are experiencing:</p>
+<ul>
+<li>Before anything, check if your issue is not already fixed in the repository
+by searching for similar issues in the
+<a href="http://github.com/geem-lab/overreact/issues">issue tracker</a>.</li>
+<li>Describe what you were doing when the error occurred, what actually
+happened, and what you expected to see. Also, include the full traceback if
+there was an exception.</li>
+<li>Tell us the Python version you're using, as well as the versions of
+overreact (and other packages you might be using with it).</li>
+<li><strong>Please consider including a
+<a href="https://stackoverflow.com/help/minimal-reproducible-example">minimal reproducible example</a>
+to help us identify the issue.</strong> This also helps check that the issue is not
+with your own code.</li>
+</ul>
+<h3 id="support-questions"><a class="header" href="#support-questions">Support questions</a></h3>
+<p>Use the <a href="https://github.com/geem-lab/overreact/discussions">discussions</a> for
+questions about your own code or on the use of overreact. (Please don't use the
+<a href="https://github.com/geem-lab/overreact/issues">issue tracker</a> for asking
+questions, the discussions are a better place to ask questions 😄.)</p>
+<h3 id="submitting-patches"><a class="header" href="#submitting-patches">Submitting patches</a></h3>
+<ul>
+<li>Include tests if your patch is supposed to solve a bug, and explain clearly
+under which circumstances the bug happens. Make sure the test fails without
+your patch.</li>
+<li>Use <a href="https://black.readthedocs.io/">Black</a> to auto-format your code.</li>
+<li>Use
+<a href="https://numpydoc.readthedocs.io/en/latest/format.html">Numpydoc docstrings</a>
+to document your code.</li>
+<li>Include a string like &quot;fixes #123&quot; in your commit message (where 123 is the
+issue you fixed). See
+<a href="https://help.github.com/articles/creating-a-pull-request/">Closing issues using keywords</a>.</li>
+<li>Bump version according to <a href="https://semver.org/">semantic versioning</a>.</li>
+</ul>
 
                     </main>
 
