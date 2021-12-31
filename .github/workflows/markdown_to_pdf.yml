@@ -20,7 +20,8 @@ jobs:
         uses: shrink/actions-document-publish@v1
         id: publish-document
         with:
-          sources: 'src/intro.md src/install.md src/notebooks.md src/howitworks.md src/cli.md src/input.md src/library.md src/contributing.md'
+          path: 'src/'
+          sources: 'intro.md install.md notebooks.md howitworks.md cli.md input.md library.md contributing.md'
       - if: github.event_name == 'release' && github.event.action == 'published'
         name: Get Release
         id: release
