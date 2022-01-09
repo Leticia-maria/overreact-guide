@@ -27,5 +27,5 @@ jobs:
           build_html: false
       - uses: actions/upload-artifact@v1
         with:
-          name: overreact-guide-pdf
-          path: overreact-guide.pdf
+          name: overreact-guide.pdf
+          path: pdfs
